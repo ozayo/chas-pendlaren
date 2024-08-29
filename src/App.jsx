@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LocationButton from './components/LocationButton';
 import StopsList from './components/StopsList';
+import './App.css';
 
 function App() {
   const [userLocation, setUserLocation] = useState(null);

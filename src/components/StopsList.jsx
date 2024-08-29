@@ -54,7 +54,7 @@ function StopsList({ coords }) {
   return (
     <div>
       <h2>Please select a stop</h2>
-      <ul>
+      <ul className='stops'>
         {stops.map((stop, index) => (
           <li key={index} 
               onClick={() => handleStopSelect(stop.StopLocation.id)}
