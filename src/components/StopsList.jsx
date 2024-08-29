@@ -18,7 +18,7 @@ function StopsList({ coords }) {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`https://api.resrobot.se/v2.1/location.nearbystops?originCoordLat=${coords.latitude}&originCoordLong=${coords.longitude}&format=json&accessId=a8af9c70-dca6-4354-b8b3-e70ad6bc2f4a`);
+        const response = await fetch(`https://api.resrobot.se/v2.1/location.nearbystops?originCoordLat=${coords.latitude}&originCoordLong=${coords.longitude}&format=json&accessId=${import.meta.env.VITE_TRAFIKLAB_API_KEY}`);
         if (!response.ok) throw new Error(`Network response was not ok: ${response.status}`);
         const data = await response.json();
         setStops(data.stopLocationOrCoordLocation);
@@ -53,6 +53,7 @@ function StopsList({ coords }) {
   // new render
   return (
     <div>
+      <h2>Please select a stop</h2>
       <ul>
         {stops.map((stop, index) => (
           <li key={index} onClick={() => handleStopSelect(stop.StopLocation.id)}>
