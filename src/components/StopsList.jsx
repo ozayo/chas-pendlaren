@@ -56,7 +56,10 @@ function StopsList({ coords }) {
       <h2>Please select a stop</h2>
       <ul>
         {stops.map((stop, index) => (
-          <li key={index} onClick={() => handleStopSelect(stop.StopLocation.id)}>
+          <li key={index} 
+              onClick={() => handleStopSelect(stop.StopLocation.id)}
+              className={selectedStopId === stop.StopLocation.id ? 'active' : ''}
+          >
             {stop.StopLocation.name}
           </li>
         ))}
